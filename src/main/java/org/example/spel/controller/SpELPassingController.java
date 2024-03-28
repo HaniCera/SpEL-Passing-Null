@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpELPassingController {
 
     @GetMapping("{uid}/v1")
+    //expects #uid parameter to be passed to PreAuthComponent.pass method
     @PreAuthorize("@PreAuth.pass(#uid)")
     public ResponseEntity<String> getV1(@PathVariable(name = "uid") String uid){
         log.info("getV1 uid: {}", uid);
@@ -22,6 +23,7 @@ public class SpELPassingController {
 
     @GetMapping("{uid}/v2")
     public ResponseEntity<String> getV2(@PathVariable(name = "uid") String uid){
+        // uid parameter is not null here
         log.info("getV2uid: {}", uid);
         return ResponseEntity.ok("getV2 - " + uid);
     }

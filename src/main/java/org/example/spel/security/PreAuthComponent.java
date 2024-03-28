@@ -11,6 +11,7 @@ public final class PreAuthComponent {
 
         log.info("pass uid: {}", uid);
 
+        // null exception happens here
         return !uid.isEmpty();
     }
 
